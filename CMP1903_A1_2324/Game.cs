@@ -24,6 +24,7 @@ namespace CMP1903_A1_2324
             Die die1 = new Die();
             Die die2 = new Die();
             Die die3 = new Die();
+            Die die4 = new Die();
 
             //Roll the 3 seperate die and then display the number they rolled.
             int numberOne = die1.Roll();
