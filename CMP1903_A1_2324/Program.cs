@@ -18,31 +18,65 @@ namespace CMP1903_A1_2324
             //Initialise variable to be used in loop
             bool valid = false;
 
+            //Instantiate the statistics counter
+            Statistics stats = new Statistics();
             //Loop to error handle so that if an invalid input is entered the user can try again without the program closing.
             while (valid == false)
             {
-                //Ask the user if they want to test the dice or play the game, store their answer in a string variable and ensure its uppercase.
-                Console.WriteLine("Do you want to run the test? Y/N");
+                //Display the menu to the user.
+                Console.WriteLine("Do you want to play Sevens Out, Three or More, see your statistics, run a test or quit the program? \nSevens/Three/Stats/Test/Quit: ");
+                //Allow the user to navigate the menu, storing their answer and ensuring its uppercase.
                 string confirm = Console.ReadLine();
                 confirm = confirm.ToUpper();
                 //Exception handling, try to carry out the if statements to check if the user inputted a valid character and then throw an error if the input is invalid.
                 try
                 {
                     //If the users input is y or Y then carry out the test
-                    if (confirm == "Y")
+                    if (confirm == "TEST")
                     {
-                        valid = true;
                         //Constructor to test the dice are correct values and result
                         Testing test = new Testing();
                         test.Test();
                     }
                     //If the users input is n or N then play the game
-                    else if (confirm == "N")
+                    else if (confirm == "SEVENS")
                     {
-                        //Constructor to create a new Game object and display it in the console.
-                        valid = true;
-                        Game game = new Game();
-                        Console.WriteLine($"Sum of Dice:  {game.Build()}");
+                        try
+                        {
+                            SevensOut sevens = new SevensOut();
+                            Console.WriteLine($"{sevens.Sevens()}");
+                        }
+                        catch (Exception) 
+                        {
+                            Console.WriteLine("Problem with running program: Sevens Out");
+                        }
+                    }
+                    else if (confirm == "THREE")
+                    {
+                        try
+                        {
+
+                        }
+                        catch (Exception)
+                        {
+                            Console.WriteLine("Invalid character or symbol, try again.");
+                        }
+                    }
+                    else if (confirm == "STATS")
+                    {
+                        try
+                        {
+                            Console.WriteLine($"{stats.SevensStats()}");
+                            Console.WriteLine($"{stats.ThreesStats()}");
+                        }
+                        catch (Exception)
+                        {
+                            Console.WriteLine("Invalid character or symbol, try again.");
+                        }
+                    }
+                    else if (confirm == "QUIT")
+                    {
+                        break;
                     }
                     //If neither statement is carried out then throw an error as it is an invalid input
                     else
@@ -57,6 +91,7 @@ namespace CMP1903_A1_2324
                 }
             }
             //Prevents the application from ending abruptly.
+            Console.WriteLine("Program has terminated.");
             Console.ReadKey();
         }
     }
