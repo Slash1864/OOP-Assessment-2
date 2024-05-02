@@ -11,71 +11,39 @@ namespace CMP1903_A1_2324
 {
     internal class Game
     {
-        /*
-         * The Game class should create three die objects, roll them, sum and report the total of the three dice rolls.
-         *
-         * EXTRA: For extra requirements (these aren't required though), the dice rolls could be managed so that the
-         * rolls could be continous, and the totals and other statistics could be summarised for example.
-         */
-
+        //Variable to store sum of dice.
         public int sum = 0;
 
-        public bool playerOne = true;
-        public bool playerTwo = false;
-
+        //Variable to store player score totals
         public int oneTotal = 0;
         public int twoTotal = 0;
 
+        //Variable to decide player turns.
         public bool playerOneTurn = true;
         public bool playerTwoTurn = false;
 
+        //Variable to declare game end
         public string gameEnd = "\nGame has ended\n";
 
-        //Instantiate two dice to be rolled.
+        //Instantiate five dice to be rolled.
         public Die die1 = new Die();
         public Die die2 = new Die();
         public Die die3 = new Die();
         public Die die4 = new Die();
         public Die die5 = new Die();
-        //Methods
-        /*
-        public int Build()
-        {
-            
-            //Object instantiation to create 3 seperate die objects.
-            Die die1 = new Die();
-            Die die2 = new Die();
-            Die die3 = new Die();
 
-            //Roll the 3 seperate die and then display the number they rolled.
-            int numberOne = die1.Roll();
-            Console.WriteLine($"Dice One: {numberOne}");
-
-            int numberTwo = die2.Roll();
-            Console.WriteLine($"Dice Two: {numberTwo}");
-
-            int numberThree = die3.Roll();
-            Console.WriteLine($"Dice Three: {numberThree}");
-
-            //Add all of the dice rolls up and then return the value to be used in Program().
-            sum = numberOne + numberTwo + numberThree;
-
-            return sum;
-
-            //Proof of encapsulation being used as this line returns an error
-            //This is because _number cannot be modified outside the Die class.
-            //_number = 0;
-            */
-        //}
     }
+    //Declare Sevens Out class which inherits from Game class
     internal class SevensOut : Game
     {
         public string Sevens()
         {
+            //Method calling to increase total games statistic.
             Statistics.sevensTotalGames = Statistics.sevensTotalGames + 1;
-            //Player One Rolls
+            //Loop to play all of player 1's turn
             while (playerOneTurn == true)
             {
+                //Inform the players it's player 1s turn
                 Console.WriteLine("Player 1 Rolls.");
 
                 //Roll the 3 seperate die and then display the number they rolled.

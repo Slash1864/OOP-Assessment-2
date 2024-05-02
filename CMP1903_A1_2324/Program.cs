@@ -11,10 +11,6 @@ namespace CMP1903_A1_2324
     {
         static void Main(string[] args)
         {
-            /*
-             * Create a Game object and call its methods.
-             * Create a Testing object to verify the output and operation of the other classes.
-             */
             //Initialise variable to be used in loop
             bool valid = false;
 
@@ -31,54 +27,63 @@ namespace CMP1903_A1_2324
                 //Exception handling, try to carry out the if statements to check if the user inputted a valid character and then throw an error if the input is invalid.
                 try
                 {
-                    //If the users input is y or Y then carry out the test
+                    //If the user inputs test then it carries out testing.
                     if (confirm == "TEST")
                     {
                         //Constructor to test the dice are correct values and result
                         Testing test = new Testing();
                         test.Test();
                     }
-                    //If the users input is n or N then play the game
+                    //If the users input is sevens then play Sevens Out
                     else if (confirm == "SEVENS")
                     {
+                        //Try play the game
                         try
                         {
                             SevensOut sevens = new SevensOut();
                             Console.WriteLine($"{sevens.Sevens()}");
                         }
+                        //If there's any problems with the game catch the error and send them back to the menu.
                         catch (Exception) 
                         {
                             Console.WriteLine("Problem with running program: Sevens Out");
                         }
                     }
+                    //If the users input is three then play Three or More
                     else if (confirm == "THREE")
                     {
+                        //Try play the game
                         try
                         {
 
                         }
+                        //If there's any problems with the game catch the error and send them back to the menu.
                         catch (Exception)
                         {
-                            Console.WriteLine("Invalid character or symbol, try again.");
+                            Console.WriteLine("Problem wtih running program: Three or More");
                         }
                     }
+                    //If the users input is stats then display game statistics
                     else if (confirm == "STATS")
                     {
+                        //Try displaying the stats to the console
                         try
                         {
                             Console.WriteLine($"{stats.SevensStats()}");
                             Console.WriteLine($"{stats.ThreesStats()}");
                         }
+                        //Catch any errors with displaying stats
                         catch (Exception)
                         {
-                            Console.WriteLine("Invalid character or symbol, try again.");
+                            Console.WriteLine("Problem with displaying game statistics.");
                         }
                     }
+                    //If the users input is quit then end the program.
                     else if (confirm == "QUIT")
                     {
                         break;
                     }
-                    //If neither statement is carried out then throw an error as it is an invalid input
+                    //If no statement is carried out then throw an error as it is an invalid input
                     else
                     {
                         throw new Exception();
@@ -90,7 +95,7 @@ namespace CMP1903_A1_2324
                     Console.WriteLine("Invalid character or symbol, try again.");
                 }
             }
-            //Prevents the application from ending abruptly.
+            //Prevents the application from ending abruptly and informs the user the program has ended so it can end smoothly.
             Console.WriteLine("Program has terminated.");
             Console.ReadKey();
         }

@@ -9,6 +9,7 @@ namespace CMP1903_A1_2324
 {
     internal class Statistics
     {
+        //Initialise all player stat variables.
         public static int sevensHighestScore = 0;
         public static int sevensPlayerOneWins = 0;
         public static int sevensPlayerTwoWins = 0;
@@ -19,8 +20,10 @@ namespace CMP1903_A1_2324
         public static int threesPlayerTwoWins = 0;
         public static int threesTotalGames = 0;
 
+        //Class to display Sevens Out stats
         public string SevensStats()
         {
+            //Write all Sevens Out stats to console.
             Console.WriteLine($"\nSevens Out");
             Console.WriteLine($"Highest Sevens Score: {sevensHighestScore}");
             Console.WriteLine($"Player One, Sevens Out Wins: {sevensPlayerOneWins}");
@@ -28,8 +31,10 @@ namespace CMP1903_A1_2324
             Console.WriteLine($"Sevens Out Games Played: {sevensTotalGames}");
             return null;
         }
+        //Class to display Three or More stats
         public string ThreesStats()
         {
+            //Write all Three or More stats to console.
             Console.WriteLine($"\nThree or More");
             Console.WriteLine($"Highest Three or More Score: {threesHighestScore}");
             Console.WriteLine($"Player One, Three or More Wins: {threesPlayerOneWins}");
